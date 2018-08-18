@@ -4,14 +4,21 @@ import ButtonWrapper from './components/Button'
 import TablePage from './containers/TablePage'
 import {Route} from 'react-router-dom';
 
-fetch("./json.json")
+// fetch("./json.json")
 
-.then(function(response) {
-    return response.json();
-})
-  .then(function(myJson) {
-      console.log(myJson);
-  });
+// .then(function(response) {
+//     return response.json();
+// })
+//   .then(function(myJson) {
+//       // console.log(myJson);
+//         var aucklandRegionPlaces = myJson.filter(searchBy);
+//         console.log(aucklandRegionPlaces);
+
+//   });
+
+// function searchBy(place) {
+//     return place.Region === "Auckland region";
+// }
 
 
 

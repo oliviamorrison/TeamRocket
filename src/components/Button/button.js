@@ -4,23 +4,58 @@ export default class Button extends Component {
 
   constructor(props) {
     super(props);
-    // this.state = {
-    //   label: 1,
-    // };
+    this.state = {
+      json: null,
+      regionSelect: "Auckland",
+      type: "Beach",
+      rating: "Green",
+    };
   }
 
-
   componentDidMount() {
-    //This is often used to make asynchronous calls like http requests
+    fetch("./json.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        this.setState({ json: myJson });
+      });
+
     console.log('Button component mounted!');
   }
 
-  // shouldComponentUpdate() {
-  //   return this.state.label % 2
-  // }
+  searchBy = (place) => {
+    var isRegion = (this.state.regionSelect + " region" === place.Region)
+    var isType = (this.state.type === place.SiteType)
+    var isRating = (this.state.rating === place["Swim Icon Result"])
+
+    return (isRegion && isType && isRating);
+  }
 
   handleClick() {
-    // this.setState({ label: this.state.label + 1 })
+    console.log(this.state.regionSelect);
+    console.log(this.state.type);
+    console.log(this.state.rating);
+
+    var results = this.state.json.filter(this.searchBy);
+    results = results.slice(0, Math.min(100, results.length));
+    console.log(results);
+
+  }
+
+  handleRegion = (event) => {
+    console.log(event.target.value);
+    this.setState({ regionSelect: event.target.value });
+  }
+
+  handleType = (event) => {
+    console.log(event.target.value);
+    this.setState({ type: event.target.value });
+  }
+
+  handleRating = (event) => {
+    console.log(event.target.value);
+    this.setState({ rating: event.target.value });
   }
 
   render() {
@@ -28,15 +63,10 @@ export default class Button extends Component {
     return (
       <div>
         <h1> {this.props.title}</h1>
-        {/* <button
-          className="btn btn-default"
-          onClick={() => { this.handleClick() }}>
-          {this.state.label}
-        </button> */}
         <form>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Choose region</label>
-            <select class="form-control" id="regionSelect">
+            <select class="form-control" id="regionSelect" value={this.state.regionSelect} onChange={(this.handleRegion)}>
               <option>Auckland</option>
               <option>Bay of Plenty</option>
               <option>Canterbury</option>
@@ -56,7 +86,7 @@ export default class Button extends Component {
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Type</label>
-            <select class="form-control" id="type">
+            <select class="form-control" id="type" value="type" value={this.state.type} onChange={(this.handleType)}>
               <option>Beach</option>
               <option>River</option>
               <option>Lake</option>
@@ -64,12 +94,12 @@ export default class Button extends Component {
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Rating</label>
-            <select class="form-control" id="rating">
+            <select class="form-control" id="rating" value="rating" value={this.state.rating} onChange={(this.handleRating)}>
               <option>Green</option>
               <option>Amber</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Apply</button>
+          <button type="submit" class="btn btn-primary mb-2" onClick={() => { this.handleClick() }}>Apply</button>
         </form>
       </div>
     );
