@@ -46,6 +46,9 @@ td{
 #footer {
   color: #fff;
   font-size: 15px;
+  position:fixed;
+  bottom:0px;
+  left: 0px;
 }
 
 #thumbup {
@@ -64,7 +67,9 @@ body{
   /* background: linear-gradient(to right, #25c481, #25b7c4); */
   font-family: 'Roboto', sans-serif;
   background: navy;
+  position:relative;
 }
+
 section{
   margin: 50px;
 }

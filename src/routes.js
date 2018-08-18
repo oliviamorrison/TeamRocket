@@ -36,11 +36,14 @@ const App = () => {
         <Route exact path='/'  component={ ButtonWrapper } />
         <Route exact path='/table' component={TablePage} />
       </main>
-      <footer>
+      
+      
+       <footer>
         <p id="footer">DEVELOPED BY TEAM ROCKET @ 2018 <i class="far fa-thumbs-up" id="thumbup"></i></p>
         
-      </footer>
-    </div>
+       </footer>
+      
+      </div>
     
   );
 }
