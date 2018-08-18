@@ -8,10 +8,16 @@ import {Route} from 'react-router-dom';
 const App = () => {
   return (
     <div className ='App'>
+      <header>
+      <i class="fas fa-swimmer"></i>
+      </header>
       <main className='App-intro'>
         <Route exact path='/'  component={ ButtonWrapper } />
         <Route exact path='/table' component={TablePage} />
       </main>
+      <footer>
+        <p id="footer">DEVELOPED BY TEAM ROCKET @ 2018</p>
+      </footer>
     </div>
   );
 }
