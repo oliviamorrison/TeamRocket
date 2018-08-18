@@ -59,6 +59,7 @@ table{
 }
 .tbl-header{
   background-color: rgba(255,255,255,0.3);
+
  }
 .tbl-content{
   height:300px;
@@ -87,6 +88,21 @@ td{
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 
+#footer {
+  color: #fff;
+  font-size: 15px;
+  position:fixed;
+  bottom:0px;
+  left: 0px;
+}
+
+#thumbup {
+  color: #fff;
+}
+
+#header {
+  color: #fff;
+}
 
 /* demo styles */
 
@@ -94,10 +110,8 @@ td{
 body{
   background: #ffffff;
   font-family: 'Roboto', sans-serif;
+  position:relative;
 }
-/* section{
-  margin: 50px;
-} */
 
 
 
