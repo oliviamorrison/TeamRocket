@@ -14,6 +14,7 @@ table{
 }
 .tbl-header{
   background-color: rgba(255,255,255,0.3);
+
  }
 .tbl-content{
   height:300px;
@@ -44,14 +45,25 @@ td{
 
 #footer {
   color: #fff;
+  font-size: 15px;
 }
+
+#thumbup {
+  color: #fff;
+}
+
+#header {
+  color: #fff;
+}
+
 /* demo styles */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body{
-  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-  background: linear-gradient(to right, #25c481, #25b7c4);
+  /* background: -webkit-linear-gradient(left, #25c481, #25b7c4); */
+  /* background: linear-gradient(to right, #25c481, #25b7c4); */
   font-family: 'Roboto', sans-serif;
+  background: navy;
 }
 section{
   margin: 50px;
