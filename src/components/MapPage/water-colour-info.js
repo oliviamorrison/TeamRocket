@@ -4,16 +4,16 @@ const defaultContainer =  ({children}) => <div className="control-panel">{childr
 
 export default class ControlPanel extends PureComponent {
   render() {
-    const Container = defaultContainer;
 
     return (
-      <Container>
+      <div classname='guide'>
         <h3 className="guide-title">Colour Guide</h3>
         <p>Green: Safe to Swim</p>
         <p>Amber: Moderately safe</p>
         <p>Red: Do not swim here</p>
-        <p>More about water safety: <a href="https://watersafety.org.nz/">watersafety</a></p>
-      </Container>
+
+        <p link rel="stylesheet" type="text/css" href="file.css"><a href="https://watersafety.org.nz/">watersafety</a></p>
+      </div>
     );
   }
 }
