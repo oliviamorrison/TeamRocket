@@ -19,11 +19,16 @@ fetch("./json.json")
 
 //This is sort of like the main method for our react project
 const App = () => {
-  return (
+  return ( 
     <div className ='App'>
-      <header> 
-        <img src="logo.png" alt="logo"></img>
-      </header>
+       <nav class="navbar navbar-light bg-light">
+           <a class="navbar-brand" href="#">
+           <img src="logoedit.png" alt="logo"></img>
+           </a>
+       </nav>
+      {/* <header> 
+        <img src="logoedit.png" alt="logo"></img>
+      </header> */}
         {/* <i class="fas fa-swimmer fa-2x" id="header"> Wanderer </i>  */}
        
      
