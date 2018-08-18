@@ -13,32 +13,33 @@ import WATER from '../../data/water.json';
 
 const TOKEN = 'pk.eyJ1Ijoib2xpdmlhZWxtb3JyaXNvbiIsImEiOiJjamt5djFxNWgwbmpqM3FwNGV0cGdrNjQ3In0.w81xElNUbCXiagqbEMuStA';
 
+
 class MapPage extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       viewport: {
-        latitude: -36.8470029,
+        latitude: -36.8838967,
         longitude: 174.7477795,
-        zoom: 5,
+        zoom: 10,
         bearing: 0,
         pitch: 0,
-        width: 800,
-        height: 800,
+        width: window.innerWidth,
+        height: window.innerHeight,
       },
       popupInfo: null
     };
   }
 
-  
+
 
   _resize = () => {
     this.setState({
       viewport: {
         ...this.state.viewport,
-        width: this.props.width || window.innerWidth,
-        height: this.props.height || window.innerHeight
+        width: window.innerWidth,
+        height: window.innerHeight,
       }
     });
   };
@@ -48,7 +49,7 @@ class MapPage extends Component {
      <Marker key={`marker-${index}`}
        longitude={city.longitude}
        latitude={city.latitude} >
-       <WaterPin size={20} onClick={() => this.setState({popupInfo: city})} />
+       <WaterPin rating={city.rating} size={20} onClick={() => this.setState({popupInfo: city})} />
      </Marker>
    );
  }
@@ -70,10 +71,11 @@ class MapPage extends Component {
  render() {
 
    const {viewport} = this.state;
-
    return (
      <MapGL
        {...viewport}
+       longitude = {WATER[0].longitude}
+       latitude = {WATER[0].latitude}
        mapStyle="mapbox://styles/mapbox/basic-v9"
        onViewportChange={this._updateViewport}
        mapboxApiAccessToken={TOKEN} >

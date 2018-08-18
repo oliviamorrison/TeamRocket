@@ -10,17 +10,31 @@ const pinStyle = {
   stroke: 'none'
 };
 
+
+
 export default class CityPin extends PureComponent {
+
+  constructor(){
+    super();
+    this.fillVariable = '#d00';
+  }
 
   render() {
     const {size = 20, onClick} = this.props;
 
+    console.log(this.props);
+
+    if(this.props.rating=='Green') this.fillVariable = '#009900'
+    else if(this.props.rating=='Amber') this.fillVariable = '#ff9933'
+    else if(this.props.rating=='Red') this.fillVariable = '#d00'
+
     return (
       <svg height={size} viewBox='0 0 24 24'
-        style={{...pinStyle, transform: `translate(${-size/2}px,${-size}px)`}}
+        style={{...pinStyle, transform: `translate(${-size/2}px,${-size}px)`, fill: this.fillVariable}}
         onClick={onClick} >
         <path d={ICON}/>
       </svg>
     );
   }
+
 }
