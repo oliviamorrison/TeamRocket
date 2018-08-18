@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ButtonWrapper from './components/Button'
 import TablePage from './containers/TablePage'
+import MapPage from './components/MapPage'
 import {Route} from 'react-router-dom';
 
 fetch("./json.json")
@@ -35,6 +36,7 @@ const App = () => {
       <main className='App-intro'>
         <Route exact path='/'  component={ ButtonWrapper } />
         <Route exact path='/table' component={TablePage} />
+        <Route exact path='/map' component={MapPage} />
       </main>
       
       
