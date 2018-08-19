@@ -51,7 +51,7 @@ export default class Button extends Component {
           <h1> {this.props.title}</h1>
           <form onSubmit={(e) => { this.handleClick(e) }}>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Choose region</label>
+              <label for="exampleFormControlSelect1">Where would you like to swim?</label>
               <select class="form-control" id="regionSelect" value={this.state.regionSelect} onChange={(this.handleRegion)}>
                 <option>Auckland</option>
                 <option>Bay of Plenty</option>
@@ -71,7 +71,7 @@ export default class Button extends Component {
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Type</label>
+              <label for="exampleFormControlSelect1">Would you like to swim at a beach, lake, or river?</label>
               <select class="form-control" id="type" value={this.state.type} onChange={(this.handleType)}>
                 <option>Beach</option>
                 <option>Lake</option>
@@ -79,7 +79,7 @@ export default class Button extends Component {
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Rating</label>
+              <label for="exampleFormControlSelect1">Which water quality level do you prefer?</label>
               <select class="form-control" id="rating" value={this.state.rating} onChange={(this.handleRating)}>
                 <option>Amber</option>
                 <option>Green</option>
