@@ -27,7 +27,7 @@ class MapPage extends Component {
         bearing: 0,
         pitch: 0,
         width: window.innerWidth,
-        height: window.innerHeight,
+        height: window.innerHeight - 180,
       },
       popupInfo: null,
       region: qs.parse(this.props.location.search).region,

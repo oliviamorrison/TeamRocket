@@ -3,13 +3,13 @@
   border-radius: 25px;
   position: absolute;
   top:150px;
-  left: 1200px;
-
+  left: 1100px;
+  padding: 20px;
 }
 
 .guide-content-green{
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
   padding-left: 20px;
   padding-right: 20px;
   color: green;
@@ -17,14 +17,14 @@
 
 .guide-content{
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .guide-content-amber{
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
   padding-left: 20px;
   padding-right: 20px;
   color: orange;
@@ -32,7 +32,7 @@
 
 .guide-content-red{
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
   padding-left: 20px;
   padding-right: 20px;
   color: red;
@@ -40,7 +40,9 @@
 
 .guide-title{
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 
