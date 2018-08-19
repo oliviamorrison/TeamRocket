@@ -57,15 +57,21 @@
     color: white;
 }
 
+
 .applydiv{
   width:20%;
   padding-left: 700px;
 }
 
+.trendingdiv{
+  padding-left: 650px;
+}
+
+
 .instructions{
   width: 73%;
   padding-left: 400px;
-  padding-bottom: 150px;
+  padding-bottom: 25px;
 }
 
 h1{

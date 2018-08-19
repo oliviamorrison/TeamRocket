@@ -110,6 +110,7 @@ class MapPage extends Component {
         anchor="top"
         longitude={popupInfo.Longitude}
         latitude={popupInfo.Latitude}
+
         onClose={() => this.setState({ popupInfo: null })} >
         <WaterInfo info={popupInfo} />
       </Popup>

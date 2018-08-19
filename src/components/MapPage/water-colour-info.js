@@ -13,7 +13,7 @@ export default class ControlPanel extends PureComponent {
         <p className="guide-content-amber">Moderately safe</p>
         <p className="guide-content-red">Do not swim here</p>
 
-        <p link rel="stylesheet" type="text/css" href="file.css" className="guide-content"><a href="https://watersafety.org.nz/">watersafety</a></p>
+        {/* <p link rel="stylesheet" type="text/css" href="file.css" className="guide-content"><a href="https://watersafety.org.nz/">watersafety</a></p> */}
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default class Button extends Component {
 
@@ -51,7 +52,7 @@ export default class Button extends Component {
           <h1> {this.props.title}</h1>
           <form onSubmit={(e) => { this.handleClick(e) }}>
             <div class="form-group">
-          
+
               <label for="exampleFormControlSelect1">Where would you like to swim?</label>
 
               <select class="form-control" id="regionSelect" value={this.state.regionSelect} onChange={(this.handleRegion)}>
@@ -87,15 +88,20 @@ export default class Button extends Component {
                 <option>Green</option>
               </select>
             </div>
-            <div className="applydiv">
-              <button type="submit" class="apply">Apply</button>
-            </div>
             <div className="instructions">
               <h5>What do these colours mean?</h5>
               <p>Green: These sites are safe for anyone.</p>
               <p>Amber: These sites should be avoided by young children, the elderly, or anyone with a compromised immune system.</p>
             </div>
+            <div className="applydiv">
+              <button type="submit" class="apply">Apply</button>
+            </div>
           </form>
+          <div className="trendingdiv">
+            <Link to={`/WaterQualityPage`}>
+              <button type="button" class="apply">See the most trending sites</button>
+            </Link>
+          </div>
         </div>
       </div>
     );
