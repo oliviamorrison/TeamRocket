@@ -2,20 +2,9 @@ import React from 'react';
 import './App.css';
 import ButtonWrapper from './components/Button'
 import TablePage from './containers/TablePage'
+import WaterQualityPage from './components/Quality'
+import MapPage from './components/MapPage'
 import {Route} from 'react-router-dom';
-
-fetch("./json.json")
-
-.then(function(response) {
-    return response.json();
-})
-  .then(function(myJson) {
-      console.log(myJson);
-  });
-
-
-
-
 
 //This is sort of like the main method for our react project
 const App = () => {
@@ -29,8 +18,12 @@ const App = () => {
         <main className='App-intro'>
         <Route exact path='/'  component={ ButtonWrapper } />
         <Route exact path='/table' component={TablePage} />
-        </main>
-        </div>
+
+        <Route exact path='/WaterQualityPage' component={WaterQualityPage} />
+        <Route exact path='/map' component={MapPage} />
+      </main>
+      
+      </div>
        <footer>
         <p id="footer">DEVELOPED BY TEAM ROCKET @ 2018 <i class="far fa-thumbs-up" id="thumbup"></i></p>
        </footer>
