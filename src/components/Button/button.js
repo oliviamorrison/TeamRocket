@@ -14,49 +14,9 @@ export default class Button extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("./json.json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((myJson) => {
-        this.setState({ json: myJson });
-      });
-
-    console.log('Button component mounted!');
-  }
-
-  searchBy = (place) => {
-    var isRegion = (this.state.regionSelect + " region" === place.Region)
-    var isType = (this.state.type === place.SiteType)
-    var isRating = (this.state.rating === place["Swim Icon Result"])
-
-    return (isRegion && isType && isRating);
-  }
-
-  filterResult = unfilteredResult => {
-    const filtered = unfilteredResult.reduce((acc, cur) => {
-      acc[cur.SiteName] = cur;
-      return acc;
-    }, {});
-
-    return Object.keys(filtered).map(key => filtered[key]);
-  }
-
   handleClick = (e) => {
     e.preventDefault();
-    console.log(this.state.regionSelect);
-    console.log(this.state.type);
-    console.log(this.state.rating);
-
-    var results = this.state.json.filter(this.searchBy);
-    const filtered = this.filterResult(results);
-
-    var finalResults = filtered.slice(0, Math.min(100, results.length));
-    console.log(finalResults);
-
     this.setState({ isSubmitted: true });
-
   }
 
   handleRegion = (event) => {
