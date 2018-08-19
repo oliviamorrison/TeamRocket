@@ -24,9 +24,9 @@ export default class CityPin extends PureComponent {
 
     console.log(this.props);
 
-    if(this.props.rating=='Green') this.fillVariable = '#009900'
-    else if(this.props.rating=='Amber') this.fillVariable = '#ff9933'
-    else if(this.props.rating=='Red') this.fillVariable = '#d00'
+    if(this.props.rating==='Green') this.fillVariable = '#009900'
+    else if(this.props.rating==='Amber') this.fillVariable = '#ff9933'
+    else if(this.props.rating==='Red') this.fillVariable = '#d00'
 
     return (
       <svg height={size} viewBox='0 0 24 24'

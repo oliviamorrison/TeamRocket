@@ -42,7 +42,8 @@ export default class Button extends Component {
     return Object.keys(filtered).map(key => filtered[key]);
   }
   
-  handleClick() {
+  handleClick = (e) => {
+    e.preventDefault();
     console.log(this.state.regionSelect);
     console.log(this.state.type);
     console.log(this.state.rating);
@@ -77,7 +78,7 @@ export default class Button extends Component {
     return (
       <div>
         <h1> {this.props.title}</h1>
-        <form>
+        <form  onSubmit={(e) => { this.handleClick(e) }}>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Choose region</label>
             <select class="form-control" id="regionSelect" value={this.state.regionSelect} onChange={(this.handleRegion)}>
@@ -113,7 +114,7 @@ export default class Button extends Component {
               <option>Amber</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary mb-2" onClick={() => { this.handleClick() }}>Apply</button>
+          <button type="submit" class="btn btn-primary mb-2">Apply</button>
         </form>
       </div>
     );
