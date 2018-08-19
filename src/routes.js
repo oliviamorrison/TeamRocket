@@ -2,11 +2,8 @@ import React from 'react';
 import './App.css';
 import ButtonWrapper from './components/Button'
 import TablePage from './containers/TablePage'
-<<<<<<< HEAD
 import WaterQualityPage from './components/Quality'
-=======
 import MapPage from './components/MapPage'
->>>>>>> 07b82b4a68a8e5c7aec48f016b445b6b44e189bf
 import {Route} from 'react-router-dom';
  fetch("./json.json")
 
