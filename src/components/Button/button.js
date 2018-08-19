@@ -85,8 +85,13 @@ export default class Button extends Component {
                 <option>Green</option>
               </select>
             </div>
-            <div className = "applydiv">
-            <button type="submit" class="apply">Apply</button>
+            <div className="applydiv">
+              <button type="submit" class="apply">Apply</button>
+            </div>
+            <div className="instructions">
+              <h5>What do these colours mean?</h5>
+              <p>Green: These sites are safe for anyone.</p>
+              <p>Amber: These sites should be avoided by young children, the elderly, or anyone with a compromised immune system.</p>
             </div>
           </form>
         </div>
