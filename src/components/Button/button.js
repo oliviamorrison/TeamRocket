@@ -9,7 +9,7 @@ export default class Button extends Component {
       json: null,
       regionSelect: "Auckland",
       type: "Beach",
-      rating: "Green",
+      rating: "Amber",
       isSubmitted: false,
     };
   }
@@ -51,7 +51,7 @@ export default class Button extends Component {
           <h1> {this.props.title}</h1>
           <form onSubmit={(e) => { this.handleClick(e) }}>
             <div class="form-group">
-
+          
               <label for="exampleFormControlSelect1">Where would you like to swim?</label>
 
               <select class="form-control" id="regionSelect" value={this.state.regionSelect} onChange={(this.handleRegion)}>

@@ -30,9 +30,9 @@ class MapPage extends Component {
         height: window.innerHeight - 180,
       },
       popupInfo: null,
-      region: qs.parse(this.props.location.search).region,
-      type: qs.parse(this.props.location.search).type,
-      rating: qs.parse(this.props.location.search).rating,
+      region: qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).region,
+      type: qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).type,
+      rating: qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).rating,
       results:
         [{
           "Region": "Canterbury region",
@@ -62,13 +62,7 @@ class MapPage extends Component {
         this.setState({ results: finalResults });
         console.log(finalResults);
 
-        this.setState({ isSubmitted: true });
       });
-
-    console.log(this.state.region);
-    console.log(this.state.type);
-    console.log(this.state.rating);
-
   }
 
   searchBy = (place) => {
