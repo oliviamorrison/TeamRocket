@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import MapGL, { Marker, Popup, NavigationControl } from 'react-map-gl';
 import ReactMapGL from 'react-map-gl';
-import qs from 'query-string';
+import qs from 'qs';
 
 import { connect } from 'react-redux';
 
