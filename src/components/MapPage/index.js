@@ -57,11 +57,9 @@ class MapPage extends Component {
 
         var results = myJson.filter(this.searchBy);
         const filtered = this.filterResult(results);
-
         var finalResults = filtered.slice(0, Math.min(100, results.length));
-        this.setState({ results: finalResults });
-        console.log(finalResults);
 
+        this.setState({ results: finalResults });
       });
   }
 
@@ -81,24 +79,6 @@ class MapPage extends Component {
 
     return Object.keys(filtered).map(key => filtered[key]);
   }
-
-  handleClick = (e) => {
-    e.preventDefault();
-    console.log(this.state.region);
-    console.log(this.state.type);
-    console.log(this.state.rating);
-
-    var results = this.state.json.filter(this.searchBy);
-    const filtered = this.filterResult(results);
-
-    var finalResults = filtered.slice(0, Math.min(100, results.length));
-    console.log(finalResults);
-
-    this.setState({ isSubmitted: true });
-
-  }
-
-
 
   _resize = () => {
     this.setState({
