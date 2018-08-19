@@ -59,7 +59,9 @@ class MapPage extends Component {
         const filtered = this.filterResult(results);
         var finalResults = filtered.slice(0, Math.min(100, results.length));
 
-        this.setState({ results: finalResults });
+        if (finalResults.length > 0) {
+          this.setState({ results: finalResults });
+        }
       });
   }
 
