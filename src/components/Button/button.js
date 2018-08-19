@@ -96,7 +96,7 @@ export default class Button extends Component {
                 <option>Auckland</option>
                 <option>Bay of Plenty</option>
                 <option>Canterbury</option>
-                <option>Hawke's Bay</option>
+                <option>Hawkes Bay</option>
                 <option>Manawatu-Wanganui</option>
                 <option>Marlborough</option>
                 <option>Nelson</option>
@@ -125,7 +125,9 @@ export default class Button extends Component {
                 <option>Amber</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Apply</button>
+            <div className = "applydiv">
+            <button type="submit" class="apply">Apply</button>
+            </div>
           </form>
         </div>
       </div>
