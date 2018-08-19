@@ -101,10 +101,6 @@ header {
   width:100px;
 }
 
-#main {
-   /* border-top-style: solid; */
-   /* border-top-color: rgb(1,0,130);   */
-}
 
 #footer {
   color: #fff;
@@ -141,6 +137,11 @@ body{
 }
 
 
+@media screen and (max-width:600px) {
+  .column {
+      width: 100%;
+  }
+}
 
 .App {
   /* text-align: center; */
