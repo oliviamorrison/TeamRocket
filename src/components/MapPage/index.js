@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
-import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import MapGL, { Marker, Popup, NavigationControl } from 'react-map-gl';
 import ReactMapGL from 'react-map-gl';
+import qs from 'query-string';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import ControlPanel from './water-colour-info.js';
 import WaterPin from './WaterPin';
@@ -28,8 +29,79 @@ class MapPage extends Component {
         width: window.innerWidth,
         height: window.innerHeight,
       },
-      popupInfo: null
+      popupInfo: null,
+      region: qs.parse(this.props.location.search).region,
+      type: qs.parse(this.props.location.search).type,
+      rating: qs.parse(this.props.location.search).rating,
+      results:
+        [{
+          "Region": "Canterbury region",
+          "SiteName": "Waimakariri River at Rock Spur",
+          "SiteType": "RiverSite",
+          "LawaId": "LAWA-100735",
+          "Latitude": -43.43273,
+          "Longitude": 172.5899,
+          "ValueDate": "18/12/2017 11:04",
+          "Swim Icon Result": "Amber"
+        }],
     };
+  }
+
+  componentDidMount() {
+    fetch("./json.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        this.setState({ json: myJson });
+
+        var results = myJson.filter(this.searchBy);
+        const filtered = this.filterResult(results);
+
+        var finalResults = filtered.slice(0, Math.min(100, results.length));
+        this.setState({ results: finalResults });
+        console.log(finalResults);
+
+        this.setState({ isSubmitted: true });
+      });
+
+    console.log(this.state.region);
+    console.log(this.state.type);
+    console.log(this.state.rating);
+
+  }
+
+  searchBy = (place) => {
+    var isRegion = (this.state.region + " region" === place.Region)
+    var isType = (this.state.type === place.SiteType)
+    var isRating = (this.state.rating === place["Swim Icon Result"])
+
+    return (isRegion && isType && isRating);
+  }
+
+  filterResult = unfilteredResult => {
+    const filtered = unfilteredResult.reduce((acc, cur) => {
+      acc[cur.SiteName] = cur;
+      return acc;
+    }, {});
+
+    return Object.keys(filtered).map(key => filtered[key]);
+  }
+
+  handleClick = (e) => {
+    e.preventDefault();
+    console.log(this.state.region);
+    console.log(this.state.type);
+    console.log(this.state.rating);
+
+    var results = this.state.json.filter(this.searchBy);
+    const filtered = this.filterResult(results);
+
+    var finalResults = filtered.slice(0, Math.min(100, results.length));
+    console.log(finalResults);
+
+    this.setState({ isSubmitted: true });
+
   }
 
 
@@ -45,50 +117,50 @@ class MapPage extends Component {
   };
 
   _renderWaterMarker = (city, index) => {
-   return (
-     <Marker key={`marker-${index}`}
-       longitude={city.longitude}
-       latitude={city.latitude} >
-       <WaterPin rating={city.rating} size={20} onClick={() => this.setState({popupInfo: city})} />
-     </Marker>
-   );
- }
+    return (
+      <Marker key={`marker-${index}`}
+        longitude={city.Longitude}
+        latitude={city.Latitude} >
+        <WaterPin rating={city["Swim Icon Result"]} size={20} onClick={() => this.setState({ popupInfo: city })} />
+      </Marker>
+    );
+  }
 
- _renderPopup() {
-   const {popupInfo} = this.state;
+  _renderPopup() {
+    const { popupInfo } = this.state;
 
-   return popupInfo && (
-     <Popup tipSize={5}
-       anchor="top"
-       longitude={popupInfo.longitude}
-       latitude={popupInfo.latitude}
-       onClose={() => this.setState({popupInfo: null})} >
-       <WaterInfo info={popupInfo} />
-     </Popup>
-   );
- }
+    return popupInfo && (
+      <Popup tipSize={5}
+        anchor="top"
+        longitude={popupInfo.Longitude}
+        latitude={popupInfo.Latitude}
+        onClose={() => this.setState({ popupInfo: null })} >
+        <WaterInfo info={popupInfo} />
+      </Popup>
+    );
+  }
 
- render() {
+  render() {
 
-   const {viewport} = this.state;
-   return (
-     <MapGL
-       {...viewport}
-       longitude = {WATER[0].longitude}
-       latitude = {WATER[0].latitude}
-       mapStyle="mapbox://styles/mapbox/basic-v9"
-       onViewportChange={this._updateViewport}
-       mapboxApiAccessToken={TOKEN} >
+    const { viewport } = this.state;
+    return (
+      <MapGL
+        {...viewport}
+        longitude={this.state.results[0].Longitude}
+        latitude={this.state.results[0].Latitude}
+        mapStyle="mapbox://styles/mapbox/basic-v9"
+        onViewportChange={this._updateViewport}
+        mapboxApiAccessToken={TOKEN} >
 
-       { WATER.map(this._renderWaterMarker) }
+        {this.state.results.map(this._renderWaterMarker)}
 
-       {this._renderPopup()}
+        {this._renderPopup()}
 
-       <ControlPanel containerComponent={this.props.containerComponent} />
+        <ControlPanel containerComponent={this.props.containerComponent} />
 
-     </MapGL>
-   );
- }
+      </MapGL>
+    );
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

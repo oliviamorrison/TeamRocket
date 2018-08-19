@@ -44,6 +44,23 @@
 }
 
 
+.form-group{
+  width: 73%;
+  padding-left: 400px;
+}
+
+.apply {
+    background-color: #546991;
+    border-radius: 25px;
+    color: white;
+}
+
+.applydiv{
+  width:20%;
+  padding-left: 700px;
+}
+
+
 h1{
   font-size: 30px;
   color: #fff;
@@ -128,7 +145,7 @@ body{
   background: #ffffff;
   font-family: 'Roboto', sans-serif;
   background: #fff;
-  
+
 }
 
 #info {
