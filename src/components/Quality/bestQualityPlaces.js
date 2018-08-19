@@ -44,16 +44,20 @@ export default class Button extends Component {
     console.log(orderedList);
     return (
       <div>
-        <h1> {this.props.title}</h1>
+        <h1 id="bestQuality"> {this.props.title}</h1>
         <ul>
       {top10.map(place=>
       {
           return (
-            <li class ="points"  key={place}> <label HeaderText=" Site Name">Site Name:  {place.SiteName} </label><br/>
-            <label HeaderText=" Region"> Region:  {place.Region} </label> <br/>
-            <label HeaderText=" Trend Score"> Trend Score: {place.TrendScore} </label><br/>
+            <div id="info">
+            <div class ="points"  key={place}> <label HeaderText=" Site Name">{place.SiteName} </label><br/>
+            <label HeaderText=" Region"> {place.Region} </label> <br/>
+            {/* <label HeaderText=" Trend Score"> Trend Score: {place.TrendScore} </label><br/> */}
             <label HeaderText=" Trend Period (Years)"> Current Trend: {place.Trend} </label><br/>
-            </li>)
+            <hr></hr>
+            </div>
+            </div>
+            )
             
           
           
