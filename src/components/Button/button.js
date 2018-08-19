@@ -74,15 +74,15 @@ export default class Button extends Component {
               <label for="exampleFormControlSelect1">Type</label>
               <select class="form-control" id="type" value={this.state.type} onChange={(this.handleType)}>
                 <option>Beach</option>
-                <option>River</option>
                 <option>Lake</option>
+                <option>River</option>
               </select>
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Rating</label>
               <select class="form-control" id="rating" value={this.state.rating} onChange={(this.handleRating)}>
-                <option>Green</option>
                 <option>Amber</option>
+                <option>Green</option>
               </select>
             </div>
             <div className = "applydiv">
