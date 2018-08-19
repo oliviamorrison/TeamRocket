@@ -4,10 +4,10 @@ export default class CityInfo extends PureComponent {
 
   render() {
     const {info} = this.props;
-    const displayName = `${info.name}`;
-    const region = `${info.region}`;
-    const rating = `${info.rating}`;
-    const type = `${info.type}`;
+    const displayName = `${info.SiteName}`;
+    const region = `${info.Region}`;
+    const rating = `${info["Swim Icon Result"]}`;
+    const type = `${info.SiteType}`;
 
     return (
       <div className= "pinPopUp">
