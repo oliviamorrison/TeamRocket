@@ -21,26 +21,18 @@ fetch("./json.json")
 const App = () => {
   return ( 
     <div className ='App'>
-       <nav class="navbar navbar-light bg-light">
-           <a class="navbar-brand" href="#">
-           <img src="logoedit.png" alt="logo"></img>
-           </a>
-       </nav>
-      {/* <header> 
-        <img src="logoedit.png" alt="logo"></img>
-      </header> */}
-        {/* <i class="fas fa-swimmer fa-2x" id="header"> Wanderer </i>  */}
-       
-     
-      <main className='App-intro'>
+          <header>
+            <img src="icon.jpg" class="float-left" id="icon"></img>
+            <img src="wanderer.jpg" height="105px"></img>
+          </header>
+        <div id="main">
+        <main className='App-intro'>
         <Route exact path='/'  component={ ButtonWrapper } />
         <Route exact path='/table' component={TablePage} />
-      </main>
-      
-      
+        </main>
+        </div>
        <footer>
         <p id="footer">DEVELOPED BY TEAM ROCKET @ 2018 <i class="far fa-thumbs-up" id="thumbup"></i></p>
-        
        </footer>
       
       </div>
