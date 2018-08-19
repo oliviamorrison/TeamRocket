@@ -32,14 +32,28 @@ export default class Button extends Component {
     return (isRegion && isType && isRating);
   }
 
+  filterResult = unfilteredResult => {
+
+    const filtered = unfilteredResult.reduce((acc, cur) => {
+        acc[cur.SiteName] = cur;
+        return acc;
+    }, {});
+    // console.log(Object.keys(filtered));
+    return Object.keys(filtered).map(key => filtered[key]);
+  }
+  
   handleClick() {
     console.log(this.state.regionSelect);
     console.log(this.state.type);
     console.log(this.state.rating);
 
     var results = this.state.json.filter(this.searchBy);
-    results = results.slice(0, Math.min(100, results.length));
-    console.log(results);
+    const filtered = this.filterResult(results);
+    // console.log('filtered = ', filtered);
+
+
+    var finalResults = filtered.slice(0, Math.min(100, results.length));
+    console.log(finalResults);
 
   }
 
@@ -86,7 +100,7 @@ export default class Button extends Component {
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Type</label>
-            <select class="form-control" id="type" value="type" value={this.state.type} onChange={(this.handleType)}>
+            <select class="form-control" id="type" value={this.state.type} onChange={(this.handleType)}>
               <option>Beach</option>
               <option>River</option>
               <option>Lake</option>
@@ -94,7 +108,7 @@ export default class Button extends Component {
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Rating</label>
-            <select class="form-control" id="rating" value="rating" value={this.state.rating} onChange={(this.handleRating)}>
+            <select class="form-control" id="rating" value={this.state.rating} onChange={(this.handleRating)}>
               <option>Green</option>
               <option>Amber</option>
             </select>
