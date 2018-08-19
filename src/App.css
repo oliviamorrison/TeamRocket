@@ -60,7 +60,8 @@
 
 .applydiv{
   width:20%;
-  padding-left: 700px;
+  padding-left: 730px;
+  padding-bottom: 30px;
 }
 
 .trendingdiv{
@@ -71,7 +72,6 @@
 .instructions{
   width: 73%;
   padding-left: 400px;
-  padding-bottom: 25px;
 }
 
 h1{
