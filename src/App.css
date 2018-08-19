@@ -92,6 +92,7 @@ header {
   background-color: #feffff;
   padding-top: 20px;
   padding-bottom: 30px;
+  text-align:center;
 }
 
 #icon{
@@ -112,7 +113,8 @@ header {
   bottom:-15px;
   left:0px;
   background-color:rgb(1,0,130);
-  width:100%
+  width:100%;
+  text-align:center;
 }
 
 #thumbup {
@@ -128,7 +130,7 @@ body{
   background: #ffffff;
   font-family: 'Roboto', sans-serif;
   background: rgb(194,176,176);
-  position:relative;
+  
 }
 
 

@@ -6,6 +6,7 @@ import WaterQualityPage from './components/Quality'
 import MapPage from './components/MapPage'
 import {Route} from 'react-router-dom';
 
+
 //This is sort of like the main method for our react project
 const App = () => {
   return ( 
