@@ -22,8 +22,6 @@ export default class CityPin extends PureComponent {
   render() {
     const {size = 20, onClick} = this.props;
 
-    console.log(this.props);
-
     if(this.props.rating==='Green') this.fillVariable = '#009900'
     else if(this.props.rating==='Amber') this.fillVariable = '#ff9933'
     else if(this.props.rating==='Red') this.fillVariable = '#d00'
