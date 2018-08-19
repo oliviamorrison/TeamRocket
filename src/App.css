@@ -44,6 +44,23 @@
 }
 
 
+.form-group{
+  width: 73%;
+  padding-left: 400px;
+}
+
+.apply {
+    background-color: #546991;
+    border-radius: 25px;
+    color: white;
+}
+
+.applydiv{
+  width:20%;
+  padding-left: 700px;
+}
+
+
 h1{
   font-size: 30px;
   color: #fff;
@@ -102,8 +119,8 @@ header {
 }
 
 #main {
-   border-top-style: solid;
-   border-top-color: rgb(1,0,130);  
+   /* border-top-style: solid; */
+   /* border-top-color: rgb(1,0,130);   */
 }
 
 #footer {
@@ -112,7 +129,7 @@ header {
   position:fixed;
   bottom:-15px;
   left:0px;
-  background-color:rgb(1,0,130);
+  background-color:#546991;
   width:100%;
   text-align:center;
 }
@@ -121,7 +138,9 @@ header {
   color: #fff;
 }
 
-
+#bestQuality {
+  background-color:#546991;
+}
 
 /* demo styles */
 
@@ -129,10 +148,14 @@ header {
 body{
   background: #ffffff;
   font-family: 'Roboto', sans-serif;
-  background: rgb(194,176,176);
-  
+  background: #fff;
+
 }
 
+#info {
+  color: #546991;
+  text-align: center;
+}
 
 
 
