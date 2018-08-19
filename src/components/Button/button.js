@@ -9,7 +9,7 @@ export default class Button extends Component {
       json: null,
       regionSelect: "Auckland",
       type: "Beach",
-      rating: "Green",
+      rating: "Amber",
       isSubmitted: false,
     };
   }
